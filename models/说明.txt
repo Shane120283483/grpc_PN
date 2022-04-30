@@ -1,0 +1,2 @@
+best_T2acc.pth——保存了网络结构+参数
+best_6acc.pth——保存了参数

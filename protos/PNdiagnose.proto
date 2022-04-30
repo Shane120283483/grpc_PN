@@ -1,0 +1,39 @@
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.helloworld";
+option java_outer_classname = "HelloWorldProto";
+option objc_class_prefix = "HLW";
+
+//package PNdiagnose;
+
+// The greeting service definition.
+service Diagnoser {
+  // Sends a greeting
+  rpc GetDiagnosis (DiagRequest) returns (DiagReply) {}
+}
+
+// The request message containing the user's name.
+message DiagRequest {
+  string Identifier = 1; // series ID
+}
+
+// The response message containing the greetings
+message DiagReply {
+  dieaseType type = 1; // diease type
+  string cam_img = 2; // class activation map
+  int32 code = 3; // success or failure
+}
+
+enum dieaseType{
+  Normal = 0;
+  Parkinson = 1;
+}
